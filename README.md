@@ -12,8 +12,9 @@ pandas DataFrame for separating and inserting into the table (incidents) – htt
 sqlite3 source and execution – https://docs.python.org/3.8/library/sqlite3.html*  
 
 **Installation directions** –  
-We use the packages urllib, pypdf, tempfile, re, sqlite3 and argparse  where urllib and tempfile packages are inbuilt with python and does not need separate installation and remaining packages can be installed using commands –  
-```pipenv install <package name>```
+In this project, packages urllib, pypdf, tempfile, re, sqlite3 and argparse are used where urllib, argparse and tempfile packages are inbuilt with python and remaining packages can be installed using commands –  
+```pipenv install <package name>```  
+
 **Project Description** –   
 
 **main.py file** –  
