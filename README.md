@@ -15,6 +15,8 @@ sqlite3 source and execution – https://docs.python.org/3.8/library/sqlite3.htm
 In this project, packages urllib, pypdf, tempfile, re, sqlite3 and argparse are used where urllib, argparse and tempfile packages are inbuilt with python and remaining packages can be installed using commands –  
 ```pipenv install <package name>```  
 
+A Pipfile is generated and provided in the repository which will install all the libraries nd requirments with the command ```pip .```  
+
 **Project Description** –   
 
 **main.py file** –  
@@ -22,25 +24,24 @@ This file is created in the directory project0 which call the functions of proje
 ```pipenv run python project0/main.py –incidents <url>``` (followed by URL of PDF without the # symbol).  
 
 **project0.py** –  
-This python file consists of functions and their logic to perform necessary operations to print the output as desired. Each function and its uses are explained further accordingly.
+This python file consists of code for the functions that are called in the main file.  
 
 Firstly, the packages required are imported which are mentioned in Installation directions.
 
 **fetchincidents(url)** –  
-This function is used to read the data from the url of the pdf using urllib.request package and returns the data into data object which can be used in other functions for further processing.
+This function is used to read the data from the url of the pdf using urllib package and returns the pdf to be unsed by other functions.
 
 **extractincidents()** –  
-This function first collects the data from fetchincidents() and then sores it into temporary file which uses tempfile package. Now, the package PyPDF2 package is used to read the pdf pages and its data accordingly. Now, we use the package re (regular expressions) to parse the information collected in the string form using re.sub() and re.split() methods and then, we split the data from 0 to the end of string using loop with new line and use python pandas package DataFrames to specify the data into dataframes and specify their rows according to their columns needed.
+This function first collects the data from fetchincidents() and then stores it into temporary file using tempfile package. Now, the package pypdf package is used to read the pdf pages and its data accordingly. Package re (regular expressions) is used to parse the information collected in the string form using re.sub() and re.split() methods and then, split the data from 0 to the end of string into 5 columns according to the pdf which can be fed to database.
 
 **createdb()** –  
-This function is used to create database normanpd.db and then create the table incidents in the database with the columns incident_time, incident_number, incident_location, nature and incident_ori using SQL commands. Firstly, the connection is established to the database using sqlite3 package which has been imported at the beginning and then we execute the drop table command to clean the any previous table created on the name of incidents and then execute create table command accordingly. These SQL commands are executed using execute() method. This only creates the table incidents and does not process or take any actions on the data extracted in extractincidents() function.
+This function is used to create database normanpd.db and then create the table incidents in the database with the columns incident_time, incident_number, incident_location, nature and incident_ori using SQL commands. Initially, connection is established to the database using sqlite3 package and then we execute the drop table command to clean any previous table created as incidents and then execute create table command. SQL commands are executed using execute() method. This only creates the table incidents and does not process or take any actions on the data extracted in extractincidents() function.
 
 **populatedb()** –  
-This function is used to insert our data extracted in extractincidents() into the incidents table created in created(). Here, we normally use loop iteration to insert data into the table using the incidents table columns. As we have used pandas in extract incidents to divide data into DataFrames, we need to use pandas inbuilt method called iterrows in the loop and then specify the columns and then use SQL command to insert data using sqlite3 package execute method.
+This function is used to insert our data extracted in extractincidents() into the incidents table created in created(). We use insert into command of SQL using sqlite3 package and insert the processed data into the incidents table.
 
 **status()** –  
-This function is used to print the desired output which is nature of incidents according to its count. We use sqlite3 package to connect to the database using connect method and execute function to execute the SELECT command to retrieve the data from the database and then print it as result using loop for each iteration of nature.
-
+This function is used to print the desired output which is nature of incidents according to its count.
 **Test cases** – 
 
 We have created a new directory called tests and then created a file called test_download.py which contains different functions of test cases for each function in project0.py. Each test case in the file is explained below accordingly.
