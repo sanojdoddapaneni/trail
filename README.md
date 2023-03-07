@@ -46,7 +46,7 @@ This function is used to print the desired output which is nature of incidents a
 
 We have created a new directory called tests and then created a file called test_download.py which contains different functions of test cases for each function in project0.py. Each test case in the file is explained below accordingly.
 
-Firstly, we import the packages sys to execute test file for all the directories of the project and provide the path accordingly and then import project0 folder and project0.py within the folder and then finally we should import package pytest to run testcases accordingly. Pyest modules works on pytest framework and can be installed using pipenv install pytest command.
+Firstly, we import the packages sys to execute test file for all the directories of the project and provide the path accordingly and then import project0 folder and project0.py within the folder and then finally we should import package pytest to run testcases accordingly. Pyest modules works on pytest framework and can be installed using ```pipenv install pytest``` command.
 
 We declare a url which we considered for project0 and write the tests accordingly.
 
@@ -64,9 +64,5 @@ Here, we run the popuatedb() function from project0.py and assert true for test 
 
 **test_status()** –  
 Here, we check for not None condition of output which calls status() function from project0.py and the test is passed accordingly.
-
-**Possible Bugs** - 
-
-In test_download.py we run test cases for each function considering the URL declared in the test_download.py and the normanpd.db database. Any changes to this database name or URL will result in failed test cases for the test functions. Further, when using pandas, dataFrames should be associated to their columns and same column names should be given in intert SQL command in populatedb() function. It will result in error when the column declaration is removed.
 
 At the end, these files are added, committed and pushed into git hub using git commands accordingly for each file.
