@@ -18,7 +18,8 @@ In this project, packages urllib, pypdf, tempfile, re, sqlite3 and argparse are 
 **Project Description** –   
 
 **main.py file** –  
-This file is provided in the directory project0 which consists of the functions of project0.py by importing the project0 directory and its functions and execute then by using command – pipenv run python project0/main.py –incidents #url (followed by URL of PDF without the # symbol).
+This file is created in the directory project0 which call the functions of project0.py by importing the project0 directory and its functions and execute then by using command –  
+```pipenv run python project0/main.py –incidents <url>``` (followed by URL of PDF without the # symbol).  
 
 **project0.py** –  
 This python file consists of functions and their logic to perform necessary operations to print the output as desired. Each function and its uses are explained further accordingly.
